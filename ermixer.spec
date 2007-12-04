@@ -52,6 +52,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root)
 %doc INSTALL COPYING
 %{_bindir}/ermixer
-%{_mandir}/man1/ermixer.1.bz2
+%{_mandir}/man1/ermixer.1*
 %{_menudir}/ermixer
 
