@@ -29,9 +29,15 @@ rm -rf $RPM_BUILD_ROOT
 %configure
 
 make
-mkdir -p $RPM_BUILD_ROOT/%{_menudir}/
-cat << EOF > $RPM_BUILD_ROOT/%{_menudir}/ermixer
-?package(ermixer):command="/usr/bin/ermixer" icon="sound_section.png" needs="text" section="Multimedia/Sound" title="Ermixer" longtitle="A full featured OSS mixer" 
+mkdir -p $RPM_BUILD_ROOT%{_datadir}/applications//
+cat << EOF > %buildroot%{_datadir}/applications/mandriva-.desktop
+[Desktop Entry]
+Type=Application
+Exec=/usr/bin/ermixer
+Icon=sound_section
+Categories=AudioVideo;Player;Audio;
+Name=Ermixer
+Comment=A full featured OSS mixer
 EOF
 
 %install
@@ -52,5 +58,5 @@ rm -rf $RPM_BUILD_ROOT
 %doc INSTALL COPYING
 %{_bindir}/ermixer
 %{_mandir}/man1/ermixer.1*
-%{_menudir}/ermixer
+%{_datadir}/applications/mandriva-ermixer.desktop
 
