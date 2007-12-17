@@ -10,7 +10,6 @@ License:	GPL
 Group:		Sound
 URL:		http://ermixer.sourceforge.net
 Source:		http://erevan.cuore.org/files/ermixer/%{name}-%{version}.tar.bz2
-BuildRoot:	%{_tmppath}/%{name}-%{version}-root
 BuildRequires:	libncurses-devel
 
 %description
