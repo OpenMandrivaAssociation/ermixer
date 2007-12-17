@@ -29,8 +29,8 @@ rm -rf $RPM_BUILD_ROOT
 %configure
 
 make
-mkdir -p $RPM_BUILD_ROOT%{_datadir}/applications//
-cat << EOF > %buildroot%{_datadir}/applications/mandriva-.desktop
+mkdir -p $RPM_BUILD_ROOT%{_datadir}/applications/
+cat << EOF > %buildroot%{_datadir}/applications/mandriva-%name.desktop
 [Desktop Entry]
 Type=Application
 Exec=/usr/bin/ermixer
