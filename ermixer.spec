@@ -10,6 +10,7 @@ License:	GPL
 Group:		Sound
 URL:		http://ermixer.sourceforge.net
 Source:		http://erevan.cuore.org/files/ermixer/%{name}-%{version}.tar.bz2
+Patch0:		ermixer-0.8-fix-link.patch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-root
 BuildRequires:	libncurses-devel
 
@@ -21,15 +22,17 @@ use it with a nice curses interface or with a command line
 interface (useful for use it in scripts).
 
 %prep
-
 %setup -q 
+%patch0 -p0 -b .link
 
 %build
-rm -rf $RPM_BUILD_ROOT
+%configure2_5x
+%make
 
-%configure
+%install
+rm -fr %buildroot
+%makeinstall_std
 
-make
 mkdir -p $RPM_BUILD_ROOT%{_datadir}/applications/
 cat << EOF > %buildroot%{_datadir}/applications/mandriva-%name.desktop
 [Desktop Entry]
@@ -40,10 +43,6 @@ Categories=AudioVideo;Player;Audio;
 Name=Ermixer
 Comment=A full featured OSS mixer
 EOF
-
-%install
-
-%makeinstall
 
 %clean
 rm -rf $RPM_BUILD_ROOT
