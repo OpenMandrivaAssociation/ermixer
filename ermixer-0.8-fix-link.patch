@@ -1,0 +1,35 @@
+--- src/Makefile.am.link	2010-02-19 15:23:31.000000000 +0100
++++ src/Makefile.am	2010-02-19 15:24:11.000000000 +0100
+@@ -10,8 +10,8 @@
+ else
+ LIBS = -lqt -L$(QTDIR)/lib -L$(QTDIR) -DHAVE_QT
+ endif
+-ermixer_LDFLAGS =  $(QT_LINK) -lmenu -lncurses 
++ermixer_LDADD =  $(QT_LINK) -lmenu -lncurses 
+ else
+ ermixer_SOURCES = utils.c main.cpp line.c interface.c engine.c
+-ermixer_LDFLAGS = -lmenu -lncurses
++ermixer_LDADD = -lmenu -lncurses
+ endif
+--- src/Makefile.in.link	2003-01-18 20:20:00.000000000 +0100
++++ src/Makefile.in	2010-02-19 15:27:27.000000000 +0100
+@@ -89,8 +89,8 @@
+ @HAVE_QT_TRUE@EXTRA_DIST = config.h engine.c engine.h Ermixer.cpp Ermixer.h interface.c interface.h line.c line.h main.cpp Mixer.cpp MixerChannel.cpp MixerChannel.h Mixer.h utils.c utils.h greenled.xpm redled.xpm 
+ @HAVE_QT_TRUE@ermixer_METASOURCES = USE_AUTOMOC
+ @HAVE_QT_TRUE@INCLUDES = -I$(QTDIR)/include
+-@HAVE_QT_TRUE@ermixer_LDFLAGS = $(QT_LINK) -lmenu -lncurses 
+-@HAVE_QT_FALSE@ermixer_LDFLAGS = -lmenu -lncurses
++@HAVE_QT_TRUE@ermixer_LDADD = $(QT_LINK) -lmenu -lncurses 
++@HAVE_QT_FALSE@ermixer_LDADD = -lmenu -lncurses
+ subdir = src
+ mkinstalldirs = $(SHELL) $(top_srcdir)/mkinstalldirs
+ CONFIG_HEADER = $(top_builddir)/config.h
+@@ -106,7 +106,7 @@
+ @HAVE_QT_FALSE@	line.$(OBJEXT) interface.$(OBJEXT) \
+ @HAVE_QT_FALSE@	engine.$(OBJEXT)
+ ermixer_OBJECTS = $(am_ermixer_OBJECTS)
+-ermixer_LDADD = $(LDADD)
++ermixer_LDADD += $(LDADD)
+ ermixer_DEPENDENCIES =
+ 
+ DEFS = @DEFS@
