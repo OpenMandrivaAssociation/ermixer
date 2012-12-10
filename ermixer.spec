@@ -1,6 +1,6 @@
 %define name ermixer
 %define version 0.8
-%define release %mkrel 8
+%define release 9
 
 Name:		%{name}
 Summary:	A full featured OSS mixer
@@ -11,8 +11,7 @@ Group:		Sound
 URL:		http://ermixer.sourceforge.net
 Source:		http://erevan.cuore.org/files/ermixer/%{name}-%{version}.tar.bz2
 Patch0:		ermixer-0.8-fix-link.patch
-BuildRoot:	%{_tmppath}/%{name}-%{version}-root
-BuildRequires:	libncurses-devel
+BuildRequires:	ncurses-devel
 
 %description
 This is a very sophisticated OSS mixer with a lot of useful 
@@ -63,4 +62,51 @@ rm -rf $RPM_BUILD_ROOT
 %{_bindir}/ermixer
 %{_mandir}/man1/ermixer.1*
 %{_datadir}/applications/mandriva-ermixer.desktop
+
+
+
+%changelog
+* Sun Dec 05 2010 Oden Eriksson <oeriksson@mandriva.com> 0.8-8mdv2011.0
++ Revision: 610383
+- rebuild
+
+* Fri Feb 19 2010 Funda Wang <fwang@mandriva.org> 0.8-7mdv2010.1
++ Revision: 508319
+- fix linkage
+
+  + Thierry Vignaud <tv@mandriva.org>
+    - rebuild
+    - rebuild
+
+  + Pixel <pixel@mandriva.com>
+    - rpm filetriggers deprecates update_menus/update_scrollkeeper/update_mime_database/update_icon_cache/update_desktop_database/post_install_gconf_schemas
+
+  + Olivier Blin <oblin@mandriva.com>
+    - restore BuildRoot
+
+* Mon Dec 17 2007 Thierry Vignaud <tv@mandriva.org> 0.8-4mdv2008.1
++ Revision: 130454
+- auto-convert XDG menu entry
+- kill re-definition of %%buildroot on Pixel's request
+- fix hardcoded man page extension
+- import ermixer
+
+
+* Thu Jan 05 2006 Lenny Cartier <lenny@mandriva.com> 0.8-4mdk
+- rebuild
+
+* Thu Jul 22 2004 Michael Scherer <misc@mandrake.org> 0.8-3mdk 
+- rebuild for new gcc
+
+* Thu Jun 03 2004 Lenny Cartier <lenny@mandrakesoft.com> 0.8-2mdk
+- rebuild
+
+* Mon Mar 24 2003 Lenny Cartier <lenny@mandrakesoft.com> 0.8-1mdk
+- 0.8
+
+* Thu Jan 30 2003 Lenny Cartier <lenny@mandrakesoft.com> 0.7-2mdk
+- rebuild
+
+* Thu May 16 2002 Lenny Cartier <lenny@mandrakesoft.com> 0.7-1mdk
+- added by Michele Balistreri <brain@email.it>
 
