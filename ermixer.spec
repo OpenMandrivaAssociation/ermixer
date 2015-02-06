@@ -1,6 +1,6 @@
 %define name ermixer
 %define version 0.8
-%define release 9
+%define release 10
 
 Name:		%{name}
 Summary:	A full featured OSS mixer
