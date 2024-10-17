@@ -8,7 +8,7 @@ Version:	%{version}
 Release:	%{release}
 License:	GPL
 Group:		Sound
-URL:		http://ermixer.sourceforge.net
+URL:		https://ermixer.sourceforge.net
 Source:		http://erevan.cuore.org/files/ermixer/%{name}-%{version}.tar.bz2
 Patch0:		ermixer-0.8-fix-link.patch
 BuildRequires:	ncurses-devel
